@@ -11,6 +11,7 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+// $this->title = 'Домашняя';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -29,22 +30,24 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-    'brandLabel' => 'My Company',
+    'brandLabel' => 'Моя компания',
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
-        'class' => 'navbar-inverse navbar-fixed-top',
+        'class' => 'navbar-default navbar-fixed-top',
     ],
 ]);
  
 $menuItems = [
-    ['label' => 'Home', 'url' => ['/site/index']],
-    ['label' => 'About', 'url' => ['/site/about']],
-    ['label' => 'Contact', 'url' => ['/site/contact']],
+
+    ['label' => 'Задачи', 'url' => ['/task/index']],
+    ['label' => 'Домашняя', 'url' => ['/site/index']],
+    ['label' => 'О нас', 'url' => ['/site/about']],
+    ['label' => 'Контакты', 'url' => ['/site/contact']],
 ];
  
 if (Yii::$app->user->isGuest) {
-    $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-    $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+    $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
+    $menuItems[] = ['label' => 'Авторизация', 'url' => ['/site/login']];
 } else {
     $menuItems[] = '<li>'
         . Html::beginForm(['/site/logout'], 'post')

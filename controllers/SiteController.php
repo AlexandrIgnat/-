@@ -65,10 +65,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        //$task = new Task();
-        //$task->text = "This is a task";
-        //$task->save();
-        $task = Task::find()->one();
+        $models = new Task();
+        $models->id = "This is a NEW task";
+        $models->save();
+        $task = Task::find()->all();
         return $this->render('index', ['task' => $task]);
     }
 
@@ -210,4 +210,7 @@ public function actionSignup()
             ]);
 
       }
+public function actionGetParameters() {
+        var_dump(Yii::$app->request->post('username'));
+    }
 }

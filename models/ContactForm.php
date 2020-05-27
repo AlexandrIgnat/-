@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+//use yii\db\ActiveRecord;
 
 /**
  * ContactForm is the model behind the contact form.
@@ -38,7 +39,11 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'verifyCode' => 'Код проверки',
+            'name' => 'Имя',
+            'email' => 'Почта',
+            'subject' => 'Тема',
+            'body' => 'Описание'
         ];
     }
 
@@ -62,4 +67,6 @@ class ContactForm extends Model
         }
         return false;
     }
+ 
+    
 }
